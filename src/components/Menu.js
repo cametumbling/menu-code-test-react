@@ -28,17 +28,9 @@ const Menu = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
+  if (data) return <pre>{JSON.stringify({ data }, undefined, 2)}</pre>;
 
-  return data.items.map(({ id, name, price }) => (
-    <div key={id}>
-      <h3>{name}</h3>
-      {/* <img width="400" height="250" alt="location-reference" src={`${photo}`} /> */}
-      <br />
-      <b>About this item:</b>
-      <p>{price}</p>
-      <br />
-    </div>
-  ));
+  return <></>;
 };
 
 export default Menu;
