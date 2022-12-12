@@ -35,7 +35,7 @@ const GET_MENU = gql`
 
 function App() {
     const [dishes, setDishes] = useState(data);
-
+    const user = 'Lovely OpenTable Dev';
     const { loading, error, data } = useQuery(GET_MENU);
 
     if (loading) return <p>Loading...</p>;
@@ -51,7 +51,7 @@ function App() {
     return (
         <OrderProvider>
             <h1>Menu Test</h1>
-            <Order />
+            <Order user={user} />
             <Menu menu={data.menu} />
             {/* <NewDish onAddDish={addDishHandler} /> */}
         </OrderProvider>

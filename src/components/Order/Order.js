@@ -5,10 +5,12 @@ import OrderItem from './OrderItem';
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
     const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
-
+    const orderNumber = 42;
     console.log(totalAmount);
+
     const hasItems = orderCtx.items.length > 0;
-    const hasCorrectItems = orderCtx.items.length > 4; //USE CORRECT CONDITIONS
+    const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6; //USE CORRECT CONDITIONS
+
     // const orderItemRemoveHandler = (id) => {
     //     orderCtx.removeItem(id);
     // };
@@ -28,8 +30,8 @@ const Order = (props) => {
     return (
         <>
             <header>
-                <div>Order No.</div>
-                <div>User</div>
+                <div>Order No. {orderNumber}</div>
+                <div>{props.user}</div>
             </header>
             <div className="container">
                 <div>
@@ -43,7 +45,7 @@ const Order = (props) => {
                     <div>
                         <div></div>
                         <button>Close</button>
-                        {hasCorrectItems && <button>Finalize Order</button>}
+                        {hasEnoughItems && <button>Finalize Order</button>}
                     </div>
                 </div>
             </div>
