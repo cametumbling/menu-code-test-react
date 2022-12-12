@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client';
 import NewDish from './components/NewDish/NewDish';
 import Menu from './components/Menu';
+import Order from './components/Order/Order';
+import OrderProvider from './store/OrderProvider';
 
 const client = new ApolloClient({
     uri: 'http://localhost:3000/graphql',
@@ -47,12 +49,12 @@ function App() {
     // };
 
     return (
-        <>
+        <OrderProvider>
             <h1>Menu Test</h1>
             <Menu menu={data.menu} />
-            {/* <Dishes items={dishes} />
-            <NewDish onAddDish={addDishHandler} /> */}
-        </>
+            {/* <NewDish onAddDish={addDishHandler} /> */}
+            <Order />
+        </OrderProvider>
     );
 }
 

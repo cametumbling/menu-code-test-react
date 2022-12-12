@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import OrderContext from '../../store/order-context';
 
 const Order = (props) => {
+    const orderCtx = useContext(OrderContext);
     const orderItems = (
         <ul>
             {[
