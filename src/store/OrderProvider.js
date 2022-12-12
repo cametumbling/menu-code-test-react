@@ -1,5 +1,4 @@
-import { buildASTSchema } from 'graphql';
-import { useReducer } from 'react';
+import React, { useReducer } from 'react';
 import OrderContext from './order-context';
 
 const defaultOrderState = {
@@ -32,7 +31,7 @@ const OrderProvider = (props) => {
 
     const orderContext = {
         items: orderState.items,
-        totalPrice: orderState.totalAmount,
+        totalAmount: orderState.totalAmount,
         addItem: addItemToOrderHandler,
         removeItem: removeItemFromOrderHandler,
     };

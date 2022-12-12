@@ -51,9 +51,9 @@ function App() {
     return (
         <OrderProvider>
             <h1>Menu Test</h1>
+            <Order />
             <Menu menu={data.menu} />
             {/* <NewDish onAddDish={addDishHandler} /> */}
-            <Order />
         </OrderProvider>
     );
 }

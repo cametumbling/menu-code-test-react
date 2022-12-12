@@ -3,17 +3,22 @@ import OrderContext from '../../store/order-context';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
-    const totalPrice = orderCtx.items.reduce((curPrice, item) => {
-        curPrice + item.price;
-    }, 0);
+    // const totalAmount = orderCtx.items.reduce((curPrice, item) => {
+    //     curPrice += item.price;
+    // }, 0);
+    const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
+
+    console.log(totalAmount);
+    const hasItems = orderCtx.items.length > 0;
+    const hasCorrectItems = orderCtx.items.length > 4; //USE CORRECT CONDITIONS
 
     const orderItems = (
         <ul>
-            {[
-                { id: 'c1', name: 'sushi', amount: 1, price: 1.5 },
-                { id: 'c2', name: 'schnitzel', amount: 1, price: 3 },
-            ].map((item) => (
-                <li>item.name</li>
+            {orderCtx.items.map((item) => (
+                <li key={item.id}>
+                    <span>{item.name}</span>
+                    <span>£{item.price.toFixed(2)}</span>
+                </li>
             ))}
         </ul>
     );
@@ -23,16 +28,19 @@ const Order = (props) => {
                 <div>Order No.</div>
                 <div>User</div>
             </header>
-            <div class="container">
+            <div className="container">
                 <div>
                     {orderItems}
+                    {hasItems && (
+                        <div>
+                            <span>Total Bill Amount</span>
+                            <span>{totalAmount}</span>
+                        </div>
+                    )}
                     <div>
-                        <span>Order Total</span>
-                        <span>{totalPrice}</span>
-                    </div>
-                    <div>
+                        <div></div>
                         <button>Close</button>
-                        <button>Order</button>
+                        {hasCorrectItems && <button>Finalize Order</button>}
                     </div>
                 </div>
             </div>
