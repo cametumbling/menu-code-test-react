@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client';
 import NewDish from './components/NewDish/NewDish';
 import Menu from './components/Menu';
+import Order from './components/Order/Order';
+import OrderProvider from './store/OrderProvider';
 
 const client = new ApolloClient({
     uri: 'http://localhost:3000/graphql',
@@ -33,7 +35,7 @@ const GET_MENU = gql`
 
 function App() {
     const [dishes, setDishes] = useState(data);
-
+    const user = 'Lovely OpenTable Dev';
     const { loading, error, data } = useQuery(GET_MENU);
 
     if (loading) return <p>Loading...</p>;
@@ -47,12 +49,12 @@ function App() {
     // };
 
     return (
-        <>
+        <OrderProvider>
             <h1>Menu Test</h1>
+            <Order user={user} />
             <Menu menu={data.menu} />
-            {/* <Dishes items={dishes} />
-            <NewDish onAddDish={addDishHandler} /> */}
-        </>
+            {/* <NewDish onAddDish={addDishHandler} /> */}
+        </OrderProvider>
     );
 }
 

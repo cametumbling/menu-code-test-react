@@ -3,6 +3,7 @@ import DishesList from './Menu/DishesList';
 
 const Menu = (props) => {
     let menu = props.menu;
+    const courses = Object.keys(menu).slice(1);
 
     const [selectedCourse, setSelectedCourse] = useState('starters');
 
@@ -10,17 +11,17 @@ const Menu = (props) => {
         setSelectedCourse(e.target.value);
     };
 
+    const courseButtons = courses.map((item) => (
+        <li key={item}>
+            <button onClick={setCourseHandler} value={item}>
+                {item}
+            </button>
+        </li>
+    ));
+
     return (
         <div>
-            <button onClick={setCourseHandler} value="starters">
-                Starters
-            </button>
-            <button onClick={setCourseHandler} value="mains">
-                Mains
-            </button>
-            <button onClick={setCourseHandler} value="desserts">
-                Desserts
-            </button>
+            <ul>{courseButtons}</ul>
             <DishesList course={selectedCourse} items={menu} />
         </div>
     );
