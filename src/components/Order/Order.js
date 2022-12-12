@@ -19,9 +19,9 @@ const Order = (props) => {
         <ul>
             {orderCtx.items.map((item) => (
                 <OrderItem
-                    key={item.id}
                     name={item.name}
                     price={item.price}
+                    key={item.id}
                     // onRemove={orderItemRemoveHandler.bind(null, item.id)}
                 />
             ))}
@@ -44,7 +44,7 @@ const Order = (props) => {
                     )}
                     <div>
                         <div></div>
-                        <button>Close</button>
+                        <button>Clear</button>
                         {hasEnoughItems && <button>Finalize Order</button>}
                     </div>
                 </div>

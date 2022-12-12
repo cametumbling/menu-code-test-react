@@ -5,13 +5,11 @@ const OrderItem = (props) => {
 
     return (
         <li>
+            <h2>{props.name}</h2>
             <div>
-                <h2>{props.name}</h2>
-                <div>
-                    <span>{price}</span>
-                </div>
-                {/* <button onClick={props.onRemove}>−</button> */}
+                <span>{price}</span>
             </div>
+            {/* <button onClick={props.onRemove}>−</button> */}
         </li>
     );
 };
