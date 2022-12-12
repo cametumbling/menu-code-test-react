@@ -3,6 +3,10 @@ import OrderContext from '../../store/order-context';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
+    const totalPrice = orderCtx.items.reduce((curPrice, item) => {
+        curPrice + item.price;
+    }, 0);
+
     const orderItems = (
         <ul>
             {[
@@ -24,7 +28,7 @@ const Order = (props) => {
                     {orderItems}
                     <div>
                         <span>Order Total</span>
-                        <span>35.00</span>
+                        <span>{totalPrice}</span>
                     </div>
                     <div>
                         <button>Close</button>
