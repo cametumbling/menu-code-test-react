@@ -10,6 +10,18 @@ const orderReducer = (state, action) => {
     if (action.type === 'ADD') {
         const updatedItems = state.items.concat(action.item);
         const updatedTotalAmount = state.totalAmount + action.item.price;
+
+        return {
+            items: updatedItems,
+            totalAmount: updatedTotalAmount,
+        };
+    }
+    if (action.type === 'REMOVE') {
+        const existingOrderItemIndex = state.items.findIndex((item) => item.id === action.id);
+        const existingItem = state.items[existingOrderItemIndex];
+        const updatedTotalAmount = state.totalAmount - existingItem.price;
+        let updatedItems = state.items.filter((item) => item.id !== action.id);
+
         return {
             items: updatedItems,
             totalAmount: updatedTotalAmount,

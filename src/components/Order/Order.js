@@ -1,24 +1,27 @@
 import React, { useContext } from 'react';
 import OrderContext from '../../store/order-context';
+import OrderItem from './OrderItem';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
-    // const totalAmount = orderCtx.items.reduce((curPrice, item) => {
-    //     curPrice += item.price;
-    // }, 0);
     const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
 
     console.log(totalAmount);
     const hasItems = orderCtx.items.length > 0;
     const hasCorrectItems = orderCtx.items.length > 4; //USE CORRECT CONDITIONS
+    // const orderItemRemoveHandler = (id) => {
+    //     orderCtx.removeItem(id);
+    // };
 
     const orderItems = (
         <ul>
             {orderCtx.items.map((item) => (
-                <li key={item.id}>
-                    <span>{item.name}</span>
-                    <span>£{item.price.toFixed(2)}</span>
-                </li>
+                <OrderItem
+                    key={item.id}
+                    name={item.name}
+                    price={item.price}
+                    // onRemove={orderItemRemoveHandler.bind(null, item.id)}
+                />
             ))}
         </ul>
     );
