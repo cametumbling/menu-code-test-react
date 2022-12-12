@@ -1,36 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import React, { useState } from 'react';
+import DishesList from './Menu/DishesList';
 
-const GET_MENU = gql`
-    {
-        menu {
-            starters {
-                id
-                name
-                price
-            }
-            mains {
-                id
-                name
-                price
-            }
-            desserts {
-                id
-                name
-                price
-            }
-        }
-    }
-`;
+const Menu = (props) => {
+    let menu = props.menu;
 
-const Menu = () => {
-    const { loading, error, data } = useQuery(GET_MENU);
+    const [selectedCourse, setSelectedCourse] = useState('starters');
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error : {error.message}</p>;
-    if (data) return <pre>{JSON.stringify({ data }, undefined, 2)}</pre>;
+    const setCourseHandler = (e) => {
+        setSelectedCourse(e.target.value);
+    };
 
-    return <></>;
+    return (
+        <div>
+            <button onClick={setCourseHandler} value="starters">
+                Starters
+            </button>
+            <button onClick={setCourseHandler} value="mains">
+                Mains
+            </button>
+            <button onClick={setCourseHandler} value="desserts">
+                Desserts
+            </button>
+            <DishesList course={selectedCourse} items={menu} />
+        </div>
+    );
 };
 
 export default Menu;
