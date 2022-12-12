@@ -6,7 +6,7 @@ const Order = (props) => {
     const orderCtx = useContext(OrderContext);
     const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
     const orderNumber = 42;
-    console.log(totalAmount);
+    //console.log(totalAmount);
 
     const hasItems = orderCtx.items.length > 0;
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6; //USE CORRECT CONDITIONS
