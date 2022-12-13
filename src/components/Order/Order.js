@@ -18,6 +18,9 @@ const Order = (props) => {
     // };
     let order = orderCtx.items;
     console.log(order);
+    // const filterItems(arr, query) {
+    //     return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
+    // }
 
     const orderItems = (
         <ul>

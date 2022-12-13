@@ -4,13 +4,14 @@ import DinerContext from '../../store/diner-context';
 const Diners = (props) => {
     const diners = props.diners;
     const dinerCtx = useContext(DinerContext);
+    dinerCtx.diners = diners;
     const [selectedDiner, setSelectedDiner] = useState(diners[0]);
     const setDinerHandler = (e) => {
         setSelectedDiner(e.target.value);
     };
-    console.log({ selectedDiner });
     dinerCtx.diner = selectedDiner;
     console.log(dinerCtx.diner);
+    console.log(dinerCtx.diners);
 
     const dinerButtons = diners.map((item) => (
         <li key={item}>

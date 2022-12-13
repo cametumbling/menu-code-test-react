@@ -3,6 +3,7 @@ import DinerContext from './diner-context';
 
 const defaultDinerState = {
     diner: '',
+    diners: [],
 };
 const dinerReducer = (state, action) => {
     if (action.type === 'SELECT') {
@@ -24,6 +25,7 @@ const DinerProvider = (props) => {
     const dinerContext = {
         diner: dinerState.diner,
         selectDiner: selectDinerHandler,
+        diners: dinerState.diners,
     };
 
     return <DinerContext.Provider value={dinerContext}>{props.children}</DinerContext.Provider>;
