@@ -12,6 +12,7 @@ const DishItem = (props) => {
     const dinerOrder = order.filter((el) => {
         return el.diner === dinerCtx.diner;
     });
+
     console.log(dinerOrder);
     useEffect(() => {
         dinerOrder;
@@ -41,6 +42,9 @@ const DishItem = (props) => {
         //     return el.course === props.course;
         // });
         // console.log(containsCourse);
+        const dinerOrder1 = order.filter((el) => {
+            return el.diner === dinerCtx.diner;
+        });
         if (props.name === 'Cheesecake' && isCheesecake) {
             console.log('Error! Cheesecake is sold out. :(');
         }
@@ -51,7 +55,7 @@ const DishItem = (props) => {
             console.log("Malheureusement, Pierre dit 'non!'");
         }
         if (
-            dinerOrder.some((el) => {
+            dinerOrder1.some((el) => {
                 return el.course === props.course;
             })
         ) {
