@@ -5,18 +5,16 @@ import OrderContext from '../../store/order-context';
 const DishItem = (props) => {
     const orderCtx = useContext(OrderContext);
     const dinerCtx = useContext(DinerContext);
-
     let order = orderCtx.items;
-    let diner = dinerCtx.diner;
 
     const dinerOrder = order.filter((el) => {
         return el.diner === dinerCtx.diner;
     });
 
     console.log(dinerOrder);
-    useEffect(() => {
-        dinerOrder;
-    }, [order]);
+    // useEffect(() => {
+    //     dinerOrder;
+    // }, [order]);
 
     const isCheesecake = order.some((el) => {
         if (el.name === 'Cheesecake') {
@@ -38,21 +36,19 @@ const DishItem = (props) => {
     });
 
     const addToOrderHandler = (item) => {
-        // const containsCourse = dinerOrder.some((el) => {
-        //     return el.course === props.course;
-        // });
-        // console.log(containsCourse);
         const dinerOrder1 = order.filter((el) => {
             return el.diner === dinerCtx.diner;
         });
         if (props.name === 'Cheesecake' && isCheesecake) {
             console.log('Error! Cheesecake is sold out. :(');
+            return;
         }
         if (
             (props.name === 'Salmon fillet' && isPrawnCocktail) ||
             (props.name === 'Prawn cocktail' && isSalmonFillet)
         ) {
             console.log("Malheureusement, Pierre dit 'non!'");
+            return;
         }
         if (
             dinerOrder1.some((el) => {
@@ -82,23 +78,3 @@ const DishItem = (props) => {
 };
 
 export default DishItem;
-
-// const [selectedItem, setSelectedItem] = useState('');
-// const setItemHandler = (e) => {
-//     setSelectedItem(e.target.value);
-//     props.onAddItemToOrder(selectedItem);
-// };
-
-// const isCheesecake = order.some((el) => {
-//     if (el.name === 'Cheesecake') {
-//         return true;
-//     }
-//     return false;
-// });
-//console.log(isCheesecake);
-// let order = orderCtx.items;
-// let diner = dinerCtx.diner;
-//if the item we're trying to add to the order includes cheesecake
-//check if cheesecake has already been ordered
-//if it has, then show an error
-//otherwise add it to the order
