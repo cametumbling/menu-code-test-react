@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import DinerContext from '../../store/diner-context';
 import OrderContext from '../../store/order-context';
 import OrderItem from './OrderItem';
+import ValidateOrder from './ValidateOrder';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -11,23 +12,9 @@ const Order = (props) => {
 
     const hasItems = orderCtx.items.length > 0;
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
-    //CONDITIONS
-    //Each diner must have at least two courses and one of the courses must be a main and they cannot have more than one of the same course and no prawn cocktail and salmon fillet in same meal
 
-    // const orderItemRemoveHandler = (id) => {
-    //     orderCtx.removeItem(id);
-    // };
     let order = orderCtx.items;
-    let diners = orderCtx.diners;
     console.log(order);
-    // const filterItems = (arr, query) => {
-    //     return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
-    // };
-    // if (order.length) {
-    //     diners.forEach((diner) => {
-    //         console.log(filterItems(order, diner));
-    //     });
-    // }
 
     const orderItems = (
         <ul>
@@ -59,7 +46,7 @@ const Order = (props) => {
                     )}
                     <div>
                         <button>Clear</button>
-                        {hasEnoughItems && <button>Finalize Order</button>}
+                        {hasEnoughItems && <ValidateOrder />}
                     </div>
                 </div>
             </div>
