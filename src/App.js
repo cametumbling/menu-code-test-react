@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client';
 import NewDish from './components/NewDish/NewDish';
@@ -33,14 +33,15 @@ const GET_MENU = gql`
     }
 `;
 
+const DINERS = ['Jill', 'Patricia'];
+
 function App() {
-    const [dishes, setDishes] = useState(data);
+    // const [dishes, setDishes] = useState(data);
     const user = 'Lovely OpenTable Dev';
     const { loading, error, data } = useQuery(GET_MENU);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : {error.message}</p>;
-    //if (data) return <pre>{JSON.stringify({ data }, undefined, 2)}</pre>;
 
     // const addDishHandler = (dish) => {
     //     setDishes((prevDishes) => {
@@ -51,7 +52,7 @@ function App() {
     return (
         <OrderProvider>
             <h1>Menu Test</h1>
-            <Order user={user} />
+            <Order user={user} diners={DINERS} />
             <Menu menu={data.menu} />
             {/* <NewDish onAddDish={addDishHandler} /> */}
         </OrderProvider>
