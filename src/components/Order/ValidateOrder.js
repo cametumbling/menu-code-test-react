@@ -4,9 +4,6 @@ import OrderContext from '../../store/order-context';
 
 const ValidateOrder = (props) => {
     const orderCtx = useContext(OrderContext);
-    const dinerCtx = useContext(DinerContext);
-
-    const diners = dinerCtx.diners;
     const items = orderCtx.items;
 
     const validateOrderHandler = () => {
@@ -18,22 +15,20 @@ const ValidateOrder = (props) => {
                 map.set(item.diner, [item.course]);
             }
         });
-        console.log(map);
-        const order = orderCtx.items;
-        //filter order by diner
-        // const dinerOrder1 = order.filter((el) => {
-        //     return el.diner === dinerCtx.diner;
-        // });
-        // //filter dinerOrder by course
-
-        // //if dinerOrder doesn't contain
-        // if (
-        //     !dinerOrder.some((el) => {
-        //         return el.main;
-        //     })
-        // ) {
-        // }
-        //if doesn't have at least two courses
+        map.forEach((value, key, map) => {
+            let dinerCourses = map.get(key);
+            console.log(dinerCourses);
+            if (dinerCourses.length <= 1) {
+                console.log('error, each diner must order at least two courses!');
+                return false;
+            } else if (!dinerCourses.includes('mains')) {
+                console.log('error, each diner must order a main!');
+                return false;
+            } else {
+                console.log('validation passed!');
+                return true;
+            }
+        });
     };
 
     return <button onClick={validateOrderHandler}>Validate Order</button>;
