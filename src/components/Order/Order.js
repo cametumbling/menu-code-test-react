@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import DinerContext from '../../store/diner-context';
 import OrderContext from '../../store/order-context';
 import OrderItem from './OrderItem';
+import ValidateOrder from './ValidateOrder';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -11,8 +12,7 @@ const Order = (props) => {
 
     const hasItems = orderCtx.items.length > 0;
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
-    //CONDITIONS
-    //Each diner must have at least two courses and one of the courses must be a main and they cannot have more than one of the same course and no prawn cocktail and salmon fillet in same meal
+    //Each diner must have at least 2 courses & one must be a main
 
     // const orderItemRemoveHandler = (id) => {
     //     orderCtx.removeItem(id);
@@ -59,7 +59,7 @@ const Order = (props) => {
                     )}
                     <div>
                         <button>Clear</button>
-                        {hasEnoughItems && <button>Finalize Order</button>}
+                        {hasEnoughItems && <ValidateOrder />}
                     </div>
                 </div>
             </div>
