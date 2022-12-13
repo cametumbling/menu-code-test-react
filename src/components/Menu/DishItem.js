@@ -8,7 +8,8 @@ const DishItem = (props) => {
 
     let order = orderCtx.items;
     let diner = dinerCtx.diner;
-    //let doesit = Object.fromEntries(Object.entries(order).filter(([key]) => key.includes('name')));
+    // let alreadyOrdered = Object.fromEntries(Object.entries(order).filter(([key]) => key.includes('name')));
+    // console.log(alreadyOrdered);
 
     // const doesit = order.filter((obj) => {
     //     return obj.name === 'Cheesecake';

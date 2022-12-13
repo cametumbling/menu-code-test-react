@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client';
 import NewDish from './components/Menu/NewDish/NewDish';
-import Menu from './components/Menu';
+import Menu from './components/Menu/Menu';
 import Order from './components/Order/Order';
 import DinerProvider from './store/DinerProvider';
 import OrderProvider from './store/OrderProvider';
