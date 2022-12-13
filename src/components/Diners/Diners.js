@@ -11,7 +11,7 @@ const Diners = (props) => {
     };
     dinerCtx.diner = selectedDiner;
     console.log(dinerCtx.diner);
-    console.log(dinerCtx.diners);
+    //console.log(dinerCtx.diners);
 
     const dinerButtons = diners.map((item) => (
         <li key={item}>

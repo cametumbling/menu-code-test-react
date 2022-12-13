@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
+import DinerContext from '../../store/diner-context';
 import OrderContext from '../../store/order-context';
 import OrderItem from './OrderItem';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
+    const dinerCtx = useContext(DinerContext);
     const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
     const orderNumber = 42;
 
@@ -11,15 +13,20 @@ const Order = (props) => {
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
     //CONDITIONS
     //Each diner must have at least two courses and one of the courses must be a main and they cannot have more than one of the same course and no prawn cocktail and salmon fillet in same meal
-    const validOrder = 'hm';
 
     // const orderItemRemoveHandler = (id) => {
     //     orderCtx.removeItem(id);
     // };
     let order = orderCtx.items;
+    let diners = orderCtx.diners;
     console.log(order);
-    // const filterItems(arr, query) {
+    // const filterItems = (arr, query) => {
     //     return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
+    // };
+    // if (order.length) {
+    //     diners.forEach((diner) => {
+    //         console.log(filterItems(order, diner));
+    //     });
     // }
 
     const orderItems = (
