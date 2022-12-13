@@ -8,6 +8,7 @@ const OrderItem = (props) => {
             <h2>{props.name}</h2>
             <div>
                 <span>{price}</span>
+                <span>{props.diner}</span>
             </div>
             {/* <button onClick={props.onRemove}>−</button> */}
         </li>

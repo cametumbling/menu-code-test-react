@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
+import DinerContext from '../../store/diner-context';
 import OrderContext from '../../store/order-context';
 
 const DishItem = (props) => {
     const orderCtx = useContext(OrderContext);
+    const dinerCtx = useContext(DinerContext);
     // const [selectedItem, setSelectedItem] = useState('');
     // const setItemHandler = (e) => {
     //     setSelectedItem(e.target.value);
@@ -14,6 +16,7 @@ const DishItem = (props) => {
             id: props.id,
             name: props.name,
             price: props.price,
+            diner: dinerCtx.diner,
         });
     };
 

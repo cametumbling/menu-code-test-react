@@ -7,29 +7,17 @@ const Order = (props) => {
     const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
     const orderNumber = 42;
 
-    const diners = props.diners;
-    const [selectedDiner, setSelectedDiner] = useState(diners[0]);
-    const setDinerHandler = (e) => {
-        setSelectedDiner(e.target.value);
-    };
-    //WHERE DO WE PASS THIS? diner={selectedDiner} or how to pass to context?
-    console.log({ selectedDiner });
-
-    const dinerButtons = diners.map((item) => (
-        <li key={item}>
-            <button onClick={setDinerHandler} value={item}>
-                {item}
-            </button>
-        </li>
-    ));
-
     const hasItems = orderCtx.items.length > 0;
-    const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6; //USE CORRECT CONDITIONS
+    const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
+    //CONDITIONS
+    //Each diner must have at least two courses and one of the courses must be a main and they cannot have more than one of the same course and no prawn cocktail and salmon fillet in same meal
+    const validOrder = 'hm';
 
     // const orderItemRemoveHandler = (id) => {
     //     orderCtx.removeItem(id);
     // };
-    console.log(orderCtx.items);
+    let order = orderCtx.items;
+    console.log(order);
 
     const orderItems = (
         <ul>
@@ -38,6 +26,7 @@ const Order = (props) => {
                     name={item.name}
                     price={item.price}
                     key={item.id}
+                    diner={item.diner}
                     // onRemove={orderItemRemoveHandler.bind(null, item.id)}
                 />
             ))}
@@ -58,9 +47,6 @@ const Order = (props) => {
                             <span>{totalAmount}</span>
                         </div>
                     )}
-                    <div>
-                        <ul>{dinerButtons}</ul>
-                    </div>
                     <div>
                         <button>Clear</button>
                         {hasEnoughItems && <button>Finalize Order</button>}
