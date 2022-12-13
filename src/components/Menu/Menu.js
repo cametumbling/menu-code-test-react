@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DishesList from './Menu/DishesList';
+import DishesList from './DishesList';
 
 const Menu = (props) => {
     let menu = props.menu;
