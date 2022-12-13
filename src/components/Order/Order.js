@@ -23,9 +23,9 @@ const Order = (props) => {
         <ul>
             {orderCtx.items.map((item) => (
                 <OrderItem
+                    id={item.id}
                     name={item.name}
                     price={item.price}
-                    key={item.id}
                     diner={item.diner}
                     // onRemove={orderItemRemoveHandler.bind(null, item.id)}
                 />
