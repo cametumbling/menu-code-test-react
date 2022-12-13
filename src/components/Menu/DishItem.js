@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import DinerContext from '../../store/diner-context';
 import OrderContext from '../../store/order-context';
 
@@ -8,12 +8,15 @@ const DishItem = (props) => {
 
     let order = orderCtx.items;
     let diner = dinerCtx.diner;
-    // let alreadyOrdered = Object.fromEntries(Object.entries(order).filter(([key]) => key.includes('name')));
-    // console.log(alreadyOrdered);
 
-    // const doesit = order.filter((obj) => {
-    //     return obj.name === 'Cheesecake';
-    // });
+    const dinerOrder = order.filter((el) => {
+        return el.diner === dinerCtx.diner;
+    });
+    console.log(dinerOrder);
+    useEffect(() => {
+        dinerOrder;
+    }, [order]);
+
     const isCheesecake = order.some((el) => {
         if (el.name === 'Cheesecake') {
             return true;
@@ -34,6 +37,10 @@ const DishItem = (props) => {
     });
 
     const addToOrderHandler = (item) => {
+        // const containsCourse = dinerOrder.some((el) => {
+        //     return el.course === props.course;
+        // });
+        // console.log(containsCourse);
         if (props.name === 'Cheesecake' && isCheesecake) {
             console.log('Error! Cheesecake is sold out. :(');
         }
@@ -42,11 +49,19 @@ const DishItem = (props) => {
             (props.name === 'Prawn cocktail' && isSalmonFillet)
         ) {
             console.log("Malheureusement, Pierre dit 'non!'");
+        }
+        if (
+            dinerOrder.some((el) => {
+                return el.course === props.course;
+            })
+        ) {
+            console.log('Each diner may only have one dish per course.');
         } else {
             orderCtx.addItem({
                 id: props.id,
                 name: props.name,
                 price: props.price,
+                course: props.course,
                 diner: dinerCtx.diner,
             });
         }
