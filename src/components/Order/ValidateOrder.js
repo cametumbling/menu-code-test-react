@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import OrderContext from '../../store/order-context';
 
 const ValidateOrder = (props) => {
-    let [isValid, setIsValid] = useState(true);
+    let [isValid, setIsValid] = useState(isValid);
     const orderCtx = useContext(OrderContext);
     const items = orderCtx.items;
 

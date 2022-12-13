@@ -12,22 +12,9 @@ const Order = (props) => {
 
     const hasItems = orderCtx.items.length > 0;
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
-    //Each diner must have at least 2 courses & one must be a main
 
-    // const orderItemRemoveHandler = (id) => {
-    //     orderCtx.removeItem(id);
-    // };
     let order = orderCtx.items;
-    let diners = orderCtx.diners;
     console.log(order);
-    // const filterItems = (arr, query) => {
-    //     return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
-    // };
-    // if (order.length) {
-    //     diners.forEach((diner) => {
-    //         console.log(filterItems(order, diner));
-    //     });
-    // }
 
     const orderItems = (
         <ul>
