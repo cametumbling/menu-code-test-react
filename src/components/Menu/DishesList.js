@@ -9,7 +9,7 @@ const DishesList = (props) => {
     return (
         <ul>
             {props.items[course].map((dish) => (
-                <DishItem key={dish.id} name={dish.name} price={dish.price} />
+                <DishItem id={dish.id} name={dish.name} price={dish.price} />
             ))}
         </ul>
     );
