@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import DinerContext from '../../store/diner-context';
+import React, { useContext, useState } from 'react';
 import OrderContext from '../../store/order-context';
 
 const ValidateOrder = (props) => {
+    let [isValid, setIsValid] = useState(true);
     const orderCtx = useContext(OrderContext);
     const items = orderCtx.items;
 
@@ -15,20 +15,19 @@ const ValidateOrder = (props) => {
                 map.set(item.diner, [item.course]);
             }
         });
-        map.forEach((value, key, map) => {
-            let dinerCourses = map.get(key);
+        for (let value of map.values()) {
+            let dinerCourses = value;
             console.log(dinerCourses);
-            if (dinerCourses.length <= 1) {
+            if (value.length <= 1) {
                 console.log('error, each diner must order at least two courses!');
-                return false;
+                return setIsValid(!isValid);
             } else if (!dinerCourses.includes('mains')) {
                 console.log('error, each diner must order a main!');
-                return false;
+                return setIsValid(!isValid);
             } else {
-                console.log('validation passed!');
-                return true;
+                console.log('validation passed for this user!');
             }
-        });
+        }
     };
 
     return <button onClick={validateOrderHandler}>Validate Order</button>;
