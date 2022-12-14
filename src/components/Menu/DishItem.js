@@ -82,7 +82,7 @@ const DishItem = (props) => {
         <>
             {error && <Modal title={error.title} message={error.message} onConfirm={errorHandler} />}
             <li>
-                <Button value={props.id} onClick={addToOrderHandler}>
+                <Button dish value={props.id} onClick={addToOrderHandler}>
                     {props.name}
                     <p>£{props.price.toFixed(2)}</p>
                 </Button>

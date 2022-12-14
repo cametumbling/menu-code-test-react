@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
   }
   ul {
+    padding: 0;
     list-style-type: none;
   }
 `;

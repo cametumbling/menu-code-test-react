@@ -13,6 +13,7 @@ import Spinner from './components/UI/Spinner';
 import { Container } from './components/UI/Container';
 import { Header } from './components/UI/Header';
 import { Card } from './components/UI/Card';
+import { POS } from './components/UI/POS';
 
 const client = new ApolloClient({
     uri: 'http://localhost:3000/graphql',
@@ -79,7 +80,9 @@ function App() {
                             <Diners diners={DINERS} />
                         </Card>
                         <Card>
-                            <Menu menu={data.menu} />
+                            <POS>
+                                <Menu menu={data.menu} />
+                            </POS>
                         </Card>
                     </Container>
                     {/* <NewDish onAddDish={addDishHandler} /> */}

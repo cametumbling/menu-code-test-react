@@ -14,7 +14,7 @@ const Menu = (props) => {
 
     const courseButtons = courses.map((item) => (
         <li key={item}>
-            <Button onClick={setCourseHandler} value={item}>
+            <Button course onClick={setCourseHandler} value={item}>
                 {item}
             </Button>
         </li>

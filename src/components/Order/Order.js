@@ -107,16 +107,20 @@ const Order = (props) => {
             <Container>
                 <header>
                     <h2>Order</h2>
-                    <p>Order No. {orderNumber}</p>
-                    <p>{props.user}</p>
+                    <p>
+                        <span>Order No. {orderNumber}</span>
+                        <span>{props.user}</span>
+                    </p>
                 </header>
                 <div>
                     {hasItems && (
                         <>
                             <div> {orderItems}</div>
                             <div>
-                                <h3>Total Bill Amount</h3>
-                                <h2>{totalAmount}</h2>
+                                <p style={{ backgroundColor: 'black', color: 'white' }}>
+                                    <span>Total</span>
+                                    <span>{totalAmount}</span>
+                                </p>
                             </div>
 
                             <div>
