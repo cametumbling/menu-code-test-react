@@ -3,6 +3,7 @@ import OrderContext from '../../store/order-context';
 import DinerContext from '../../store/diner-context';
 import OrderItem from './OrderItem';
 import Modal from '../UI/Modal';
+import { Button } from '../UI/Button';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -117,8 +118,8 @@ const Order = (props) => {
                             </div>
 
                             <div>
-                                <button onClick={onClear}>Clear</button>
-                                {hasEnoughItems && <button onClick={validateOrderHandler}>Validate Order</button>}
+                                <Button onClick={onClear}>Clear</Button>
+                                {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
                             </div>
                         </>
                     )}

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import DinerContext from '../../store/diner-context';
+import { Button } from '../UI/Button';
 
 const Diners = (props) => {
     const diners = props.diners;
@@ -13,9 +14,9 @@ const Diners = (props) => {
 
     const dinerButtons = diners.map((item) => (
         <li key={item}>
-            <button onClick={setDinerHandler} value={item}>
+            <Button onClick={setDinerHandler} value={item}>
                 {item}
-            </button>
+            </Button>
         </li>
     ));
     return (

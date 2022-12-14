@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '../UI/Button';
 import DishesList from './DishesList';
 
 const Menu = (props) => {
@@ -13,9 +14,9 @@ const Menu = (props) => {
 
     const courseButtons = courses.map((item) => (
         <li key={item}>
-            <button onClick={setCourseHandler} value={item}>
+            <Button onClick={setCourseHandler} value={item}>
                 {item}
-            </button>
+            </Button>
         </li>
     ));
 

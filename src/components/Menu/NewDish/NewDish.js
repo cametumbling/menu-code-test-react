@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '../../UI/Button';
 import DishForm from './DishForm';
 
 const NewDish = (props) => {
@@ -22,7 +23,7 @@ const NewDish = (props) => {
     };
     return (
         <div>
-            {!isEditing && <button onClick={startEditingHandler}>Add New Dish</button>}
+            {!isEditing && <Button onClick={startEditingHandler}>Add New Dish</Button>}
             {isEditing && <DishForm onSaveDishData={saveDishDataHandler} onCancel={stopEditingHandler} />}
         </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import { Button } from './Button';
 
 const portalRoot = document.getElementById('portal-root');
 const Background = styled.div`
@@ -32,7 +33,7 @@ const Modal = (props) => {
                 <Content>
                     <h2>{props.title}</h2>
                     <div>{props.message}</div>
-                    <button onClick={props.onConfirm}>Okay</button>
+                    <Button onClick={props.onConfirm}>Okay</Button>
                 </Content>
             </Background>
         </>,
