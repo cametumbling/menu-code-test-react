@@ -17,9 +17,6 @@ const Order = (props) => {
     const hasItems = orderCtx.items.length > 0;
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
 
-    let order = orderCtx.items;
-    console.log(order);
-
     const orderItems = (
         <ul>
             {orderCtx.items.map((item) => (
