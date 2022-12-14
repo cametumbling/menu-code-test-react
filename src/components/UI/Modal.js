@@ -31,8 +31,8 @@ const Modal = (props) => {
             <Background onClick={props.onConfirm}>
                 <Content>
                     <h2>{props.title}</h2>
-                    {props.message}
-                    <button onClick={props.onConfirm}>Close</button>
+                    <div>{props.message}</div>
+                    <button onClick={props.onConfirm}>Okay</button>
                 </Content>
             </Background>
         </>,
