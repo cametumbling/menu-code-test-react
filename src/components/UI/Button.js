@@ -18,6 +18,11 @@ export const Button = styled.button`
         opacity: 0.9;
         transform: scale(0.97);
     }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        & button:first-child {
+            margin-top: 50px;
+        }
+    }
     ${(props) =>
         props.dish &&
         css`
