@@ -60,12 +60,13 @@ const Order = (props) => {
                 return;
             } else {
                 console.log('validation passed for this user!');
-                setSuccess({
-                    title: 'Success!',
-                    message: 'You will enjoy a delicious meal.',
-                });
             }
         }
+        setSuccess({
+            title: 'Success!',
+            message: 'You will enjoy a delicious meal.',
+        });
+        return;
     };
 
     const errorHandler = () => {
@@ -106,17 +107,20 @@ const Order = (props) => {
             </header>
             <div className="container">
                 <div>
-                    {orderItems}
                     {hasItems && (
-                        <div>
-                            <span>Total Bill Amount</span>
-                            <span>{totalAmount}</span>
-                        </div>
+                        <>
+                            <div> {orderItems}</div>
+                            <div>
+                                <span>Total Bill Amount</span>
+                                <span>{totalAmount}</span>
+                            </div>
+
+                            <div>
+                                <button onClick={onClear}>Clear</button>
+                                {hasEnoughItems && <button onClick={validateOrderHandler}>Validate Order</button>}
+                            </div>
+                        </>
                     )}
-                    <div>
-                        {hasItems && <button onClick={onClear}>Clear</button>}
-                        {hasEnoughItems && <button onClick={validateOrderHandler}>Validate Order</button>}
-                    </div>
                 </div>
             </div>
         </>
