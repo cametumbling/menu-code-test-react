@@ -4,6 +4,7 @@ import DinerContext from '../../store/diner-context';
 import OrderItem from './OrderItem';
 import Modal from '../UI/Modal';
 import { Button } from '../UI/Button';
+import { Flex } from '../UI/FlexStyle';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -104,49 +105,51 @@ const Order = (props) => {
             {confirm && (
                 <Modal title="Confirm" message="Are you sure you want to clear the order?" onConfirm={onClearHandler} />
             )}
-            <div>
-                <h3>Order</h3>
-                <p>Order No.: {orderNumber}</p>
-                <p>User: {props.user}</p>
-                <Button onClick={onClear} bg={'theme.color.muted'}>
-                    Clear
-                </Button>
-                {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
-            </div>
-            <div>
-                {hasItems && (
-                    <>
-                        <div>
-                            <p
-                                style={{
-                                    backgroundColor: 'black',
-                                    color: 'white',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                }}
-                            >
-                                <span>Item</span>
-                                <span>Diner</span>
-                                <span>Price</span>
-                            </p>
-                        </div>
-                        <div>{orderItems}</div>
-                        <div>
-                            <p
-                                style={{
-                                    backgroundColor: 'black',
-                                    color: 'white',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                }}
-                            >
-                                <span>Total</span>
-                                <span>{totalAmount}</span>
-                            </p>
-                        </div>
-                    </>
-                )}
-            </div>
+            <Flex>
+                <div>
+                    <h3>Order</h3>
+                    <p>Order No.: {orderNumber}</p>
+                    <p>User: {props.user}</p>
+                    <Button onClick={onClear} bg={'theme.color.muted'}>
+                        Clear
+                    </Button>
+                    {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
+                </div>
+                <div>
+                    {hasItems && (
+                        <>
+                            <div>
+                                <p
+                                    style={{
+                                        backgroundColor: 'black',
+                                        color: 'white',
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                    }}
+                                >
+                                    <span>Item</span>
+                                    <span>Diner</span>
+                                    <span>Price</span>
+                                </p>
+                            </div>
+                            <div>{orderItems}</div>
+                            <div>
+                                <p
+                                    style={{
+                                        backgroundColor: 'black',
+                                        color: 'white',
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                    }}
+                                >
+                                    <span>Total</span>
+                                    <span>{totalAmount}</span>
+                                </p>
+                            </div>
+                        </>
+                    )}
+                </div>
+            </Flex>
         </>
     );
 };

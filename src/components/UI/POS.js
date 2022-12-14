@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const POS = styled.div`
     align-items: center;
-    overflow: hidden;
+    overflow: scroll;
     overflow-y: scroll;
     position: relative;
     -webkit-overflow-scrolling: touch;
@@ -22,4 +22,5 @@ export const POS = styled.div`
 
     li {
       align-self: start;
+      
 `;

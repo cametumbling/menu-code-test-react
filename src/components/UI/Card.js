@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
     display: flex;
+    height: 40vh;
     align-items: center;
     background-color: #fff;
     border-radius: 15px;
@@ -14,7 +15,9 @@ export const Card = styled.div`
         flex: 2;
     }
     @media (max-width: ${({ theme }) => theme.mobile}) {
+        display: flex;
         flex-direction: column;
+        height: ${({ height }) => height || 'auto'};
     }
     h3 {
         position: absolute;
