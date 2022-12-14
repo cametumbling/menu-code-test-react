@@ -8,13 +8,13 @@ import { Container } from '../UI/Container';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
-    const dinerCtx = useContext(DinerContext);
+    //const dinerCtx = useContext(DinerContext);
     const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
     const orderNumber = 42;
     const items = orderCtx.items;
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
-    const [confirm, setConfirm] = useState(null);
+    //const [confirm, setConfirm] = useState(null);
 
     const hasItems = orderCtx.items.length > 0;
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
@@ -77,37 +77,38 @@ const Order = (props) => {
     const submitHandler = () => {
         //in future, POST order etc
         setSuccess(null);
-        orderCtx.items = [];
-        orderCtx.totalAmount = 0;
-        orderCtx.diner = '';
-        dinerCtx.diners = [];
-        dinerCtx.diner = '';
+        // orderCtx.items = [];
+        // orderCtx.totalAmount = 0;
+        // orderCtx.diner = '';
+        // dinerCtx.diners = [];
+        // dinerCtx.diner = '';
     };
 
-    const onClear = () => {
-        setConfirm(true);
-    };
+    // const onClear = () => {
+    //     setConfirm(true);
+    // };
 
-    const onClearHandler = () => {
-        setConfirm(null);
-        orderCtx.items = [];
-        orderCtx.totalAmount = 0;
-        orderCtx.diner = '';
-        dinerCtx.diners = [];
-        dinerCtx.diner = '';
-    };
+    // const onClearHandler = () => {
+    //     setConfirm(null);
+    //     orderCtx.items = [];
+    //     orderCtx.totalAmount = 0;
+    //     orderCtx.diner = '';
+    //     dinerCtx.diners = [];
+    //     dinerCtx.diner = '';
+    // };
 
     return (
         <>
             {error && <Modal title={error.title} message={error.message} onConfirm={errorHandler} />}
             {success && <Modal title={success.title} message={success.message} onConfirm={submitHandler} />}
-            {confirm && (
+            {/* {confirm && (
                 <Modal title="Confirm" message="Are you sure you want to clear the order?" onConfirm={onClearHandler} />
-            )}
+            )} */}
             <Container>
                 <header>
-                    <div>Order No. {orderNumber}</div>
-                    <div>{props.user}</div>
+                    <h2>Order</h2>
+                    <p>Order No. {orderNumber}</p>
+                    <p>{props.user}</p>
                 </header>
                 <div>
                     {hasItems && (
@@ -119,7 +120,7 @@ const Order = (props) => {
                             </div>
 
                             <div>
-                                <Button onClick={onClear}>Clear</Button>
+                                {/* <Button onClick={onClear}>Clear</Button> */}
                                 {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
                             </div>
                         </>

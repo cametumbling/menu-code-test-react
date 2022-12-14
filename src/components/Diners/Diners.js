@@ -24,6 +24,7 @@ const Diners = (props) => {
     ));
     return (
         <div>
+            <h3>Diners</h3>
             <ul>{dinerButtons}</ul>
         </div>
     );
