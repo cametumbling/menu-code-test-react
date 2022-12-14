@@ -6,9 +6,16 @@ const OrderItem = (props) => {
 
     return (
         <li>
-            <span>{props.name}</span>
-            <span>{price}</span>
-            <span>{props.diner}</span>
+            <p
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                }}
+            >
+                <span>{props.name}</span>
+                <span>{price}</span>
+                <span>{props.diner}</span>
+            </p>
             {/* <Button onClick={props.onRemove}>−</Button> */}
         </li>
     );

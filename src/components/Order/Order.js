@@ -106,10 +106,8 @@ const Order = (props) => {
             )}
             <div>
                 <h3>Order</h3>
-                <p>
-                    <span>Order No. {orderNumber}</span>
-                    <span>{props.user}</span>
-                </p>
+                <p>Order No.: {orderNumber}</p>
+                <p>User: {props.user}</p>
                 <Button onClick={onClear} bg={'theme.color.muted'}>
                     Clear
                 </Button>
@@ -118,9 +116,30 @@ const Order = (props) => {
             <div>
                 {hasItems && (
                     <>
+                        <div>
+                            <p
+                                style={{
+                                    backgroundColor: 'black',
+                                    color: 'white',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                }}
+                            >
+                                <span>Item</span>
+                                <span>Price</span>
+                                <span>Diner</span>
+                            </p>
+                        </div>
                         <div>{orderItems}</div>
                         <div>
-                            <p style={{ backgroundColor: 'black', color: 'white' }}>
+                            <p
+                                style={{
+                                    backgroundColor: 'black',
+                                    color: 'white',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                }}
+                            >
                                 <span>Total</span>
                                 <span>{totalAmount}</span>
                             </p>
