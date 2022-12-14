@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { BsPersonFill } from 'react-icons/bs';
 import DinerContext from '../../store/diner-context';
 import { Button } from '../UI/Button';
 
@@ -15,7 +16,9 @@ const Diners = (props) => {
     const dinerButtons = diners.map((item) => (
         <li key={item}>
             <Button onClick={setDinerHandler} value={item}>
-                {item}
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <BsPersonFill style={{ margin: '0 5px' }} /> {item}
+                </div>
             </Button>
         </li>
     ));

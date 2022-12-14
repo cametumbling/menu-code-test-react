@@ -32,7 +32,7 @@ const Modal = (props) => {
             <Background onClick={props.onConfirm}>
                 <Content>
                     <h2>{props.title}</h2>
-                    <div>{props.message}</div>
+                    <p>{props.message}</p>
                     <Button onClick={props.onConfirm}>Okay</Button>
                 </Content>
             </Background>

@@ -4,6 +4,7 @@ import DinerContext from '../../store/diner-context';
 import OrderItem from './OrderItem';
 import Modal from '../UI/Modal';
 import { Button } from '../UI/Button';
+import { Container } from '../UI/Container';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -65,7 +66,7 @@ const Order = (props) => {
         }
         setSuccess({
             title: 'Success!',
-            message: 'You will enjoy a delicious meal.',
+            message: 'Bon Appétit! 😋',
         });
         return;
     };
@@ -103,18 +104,18 @@ const Order = (props) => {
             {confirm && (
                 <Modal title="Confirm" message="Are you sure you want to clear the order?" onConfirm={onClearHandler} />
             )}
-            <header>
-                <div>Order No. {orderNumber}</div>
-                <div>{props.user}</div>
-            </header>
-            <div className="container">
+            <Container>
+                <header>
+                    <div>Order No. {orderNumber}</div>
+                    <div>{props.user}</div>
+                </header>
                 <div>
                     {hasItems && (
                         <>
                             <div> {orderItems}</div>
                             <div>
-                                <span>Total Bill Amount</span>
-                                <span>{totalAmount}</span>
+                                <h3>Total Bill Amount</h3>
+                                <h2>{totalAmount}</h2>
                             </div>
 
                             <div>
@@ -124,7 +125,7 @@ const Order = (props) => {
                         </>
                     )}
                 </div>
-            </div>
+            </Container>
         </>
     );
 };
