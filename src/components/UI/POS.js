@@ -13,9 +13,8 @@ export const POS = styled.div`
 
     ul {
         list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         padding: 0;
         margin: 0;
     }

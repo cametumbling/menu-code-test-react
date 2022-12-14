@@ -7,21 +7,22 @@ import { Button } from '../UI/Button';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
-    //const dinerCtx = useContext(DinerContext);
+    const dinerCtx = useContext(DinerContext);
     const totalAmount = `£${orderCtx.totalAmount.toFixed(2)}`;
     const orderNumber = 42;
     const items = orderCtx.items;
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
-    //const [confirm, setConfirm] = useState(null);
+    const [confirm, setConfirm] = useState(null);
 
     const hasItems = orderCtx.items.length > 0;
     const hasEnoughItems = orderCtx.items.length >= 4 && orderCtx.items.length <= 6;
 
     const orderItems = (
         <ul>
-            {orderCtx.items.map((item) => (
+            {orderCtx.items.map((item, index) => (
                 <OrderItem
+                    key={index}
                     id={item.id}
                     name={item.name}
                     price={item.price}
@@ -83,45 +84,46 @@ const Order = (props) => {
         // dinerCtx.diner = '';
     };
 
-    // const onClear = () => {
-    //     setConfirm(true);
-    // };
+    const onClear = () => {
+        setConfirm(true);
+    };
 
-    // const onClearHandler = () => {
-    //     setConfirm(null);
-    //     orderCtx.items = [];
-    //     orderCtx.totalAmount = 0;
-    //     orderCtx.diner = '';
-    //     dinerCtx.diners = [];
-    //     dinerCtx.diner = '';
-    // };
+    const onClearHandler = () => {
+        setConfirm(null);
+        orderCtx.items = [];
+        orderCtx.totalAmount = 0;
+        orderCtx.diner = '';
+        dinerCtx.diners = [];
+        dinerCtx.diner = '';
+    };
 
     return (
         <>
             {error && <Modal title={error.title} message={error.message} onConfirm={errorHandler} />}
             {success && <Modal title={success.title} message={success.message} onConfirm={submitHandler} />}
-            {/* {confirm && (
+            {confirm && (
                 <Modal title="Confirm" message="Are you sure you want to clear the order?" onConfirm={onClearHandler} />
-            )} */}
-            <h3>Order</h3>
-            <p>
-                <span>Order No. {orderNumber}</span>
-                <span>{props.user}</span>
-            </p>
+            )}
+            <div>
+                <h3>Order</h3>
+                <p>
+                    <span>Order No. {orderNumber}</span>
+                    <span>{props.user}</span>
+                </p>
+                <Button onClick={onClear} bg={'theme.color.muted'}>
+                    Clear
+                </Button>
+                {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
+            </div>
             <div>
                 {hasItems && (
                     <>
-                        <div> {orderItems}</div>
+                        <div>{orderItems}</div>
                         <div>
                             <p style={{ backgroundColor: 'black', color: 'white' }}>
                                 <span>Total</span>
                                 <span>{totalAmount}</span>
                             </p>
-                        </div>
-
-                        <div>
-                            {/* <Button onClick={onClear}>Clear</Button> */}
-                            {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
                         </div>
                     </>
                 )}

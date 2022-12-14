@@ -29,7 +29,7 @@ export const Button = styled.button`
     ${(props) =>
         props.course &&
         css`
-            width: 250px;
+            width: 140px;
             align-items: stretch;
         `}
     ${(props) =>
@@ -38,5 +38,7 @@ export const Button = styled.button`
             width: 150px;
             padding: 15px 0 15px 10px;
             overflow: hidden;
+            display: flext;
+            justifycontent: start;
         `}
 `;

@@ -10,6 +10,7 @@ const DishItem = (props) => {
     const [error, setError] = useState(null);
 
     let order = orderCtx.items;
+    let diner = dinerCtx.diner;
 
     const isCheesecake = order.some((el) => {
         if (el.name === 'Cheesecake') {

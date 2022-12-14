@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { BsPersonFill } from 'react-icons/bs';
-import DinerContext from '../../store/diner-context';
 import { Button } from '../UI/Button';
+import DinerContext from '../../store/diner-context';
 
 const Diners = (props) => {
     const diners = props.diners;
@@ -12,13 +12,18 @@ const Diners = (props) => {
         setSelectedDiner(e.target.value);
     };
     dinerCtx.diner = selectedDiner;
+    console.log(selectedDiner);
 
-    const dinerButtons = diners.map((item) => (
-        <li key={item}>
-            <Button diner onClick={setDinerHandler} value={item}>
+    const dinerButtons = diners.map((item, index) => (
+        <li key={index}>
+            {/* <Button onClick={setDinerHandler} value={item} diner>
                 <div style={{ display: 'flex', justifyContent: 'start' }}>
                     <BsPersonFill style={{ margin: '0 5px' }} /> {item}
                 </div>
+            </Button> */}
+            <Button onClick={setDinerHandler} value={item} diner>
+                <BsPersonFill style={{ margin: '0 5px', padding: '3 0 0 0' }} />
+                {item}
             </Button>
         </li>
     ));

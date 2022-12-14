@@ -5,7 +5,7 @@ const OrderItem = (props) => {
     const price = `£${props.price.toFixed(2)}`;
 
     return (
-        <li key={props.id}>
+        <li>
             <span>{props.name}</span>
             <span>{price}</span>
             <span>{props.diner}</span>

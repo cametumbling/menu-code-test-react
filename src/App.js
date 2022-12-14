@@ -43,7 +43,6 @@ const GET_MENU = gql`
     }
 `;
 
-const DINERS = ['Jill', 'Patricia'];
 const theme = {
     colors: {
         primary: '#db3943',
@@ -54,6 +53,8 @@ const theme = {
     mobile: '768px',
 };
 function App() {
+    const DINERS = ['Jill', 'Patricia'];
+
     const user = 'Lovely OpenTable Dev';
     const { loading, error, data } = useQuery(GET_MENU);
 
@@ -80,10 +81,10 @@ function App() {
                             <Order user={user} />
                         </Card>
                         <Flex>
-                            <Card>
+                            <Card style={{ height: '40vh' }}>
                                 <Menu menu={data.menu} />
                             </Card>
-                            <Card>
+                            <Card style={{ height: '40vh' }}>
                                 <Diners diners={DINERS} />
                             </Card>
                         </Flex>

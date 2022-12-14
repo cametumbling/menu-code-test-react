@@ -21,6 +21,7 @@ const Content = styled.div`
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
+    min-width: 40%;
     max-width: 90%;
     max-height: 90%;
     box-shadow: 0 3px 15px -3px rgba(0, 0, 0, 0.2);
