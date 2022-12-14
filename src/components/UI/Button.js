@@ -11,6 +11,7 @@ export const Button = styled.button`
     font-weight: 700;
     padding: 15px;
     text-align: center;
+    text-transform: capitalize;
     background-color: ${({ bg, theme }) => bg || theme.colors.primary};
     color: ${({ color }) => color || 'white'};
     &:hover {

@@ -14,6 +14,7 @@ import { Container } from './components/UI/Container';
 import { Header } from './components/UI/Header';
 import { Card } from './components/UI/Card';
 import { POS } from './components/UI/POS';
+import { Flex } from './components/UI/FlexStyle';
 
 const client = new ApolloClient({
     uri: 'http://localhost:3000/graphql',
@@ -75,15 +76,17 @@ function App() {
                             <h1>Menu Test</h1>
                             <img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t39.30808-6/211226254_10159773944875799_3677613253310959932_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pfpqZe-6p-MAX9ZD7-O&_nc_ht=scontent-lhr8-1.xx&oh=00_AfC_Tux2S5SV5gJ2GZGcaN9HdH3q_RFfZ1XdPyZ9fFnw5A&oe=639EAF74" />
                         </Header>
-                        <Card>
+                        <Card style={{ height: '40vh' }}>
                             <Order user={user} />
-                            <Diners diners={DINERS} />
                         </Card>
-                        <Card>
-                            <POS>
+                        <Flex>
+                            <Card>
                                 <Menu menu={data.menu} />
-                            </POS>
-                        </Card>
+                            </Card>
+                            <Card>
+                                <Diners diners={DINERS} />
+                            </Card>
+                        </Flex>
                     </Container>
                     {/* <NewDish onAddDish={addDishHandler} /> */}
                 </OrderProvider>

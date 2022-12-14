@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '../UI/Button';
+import { POS } from '../UI/POS';
 import DishesList from './DishesList';
 
 const Menu = (props) => {
@@ -22,8 +23,13 @@ const Menu = (props) => {
 
     return (
         <div>
-            <ul>{courseButtons}</ul>
-            <DishesList course={selectedCourse} items={menu} />
+            <h3>Menu</h3>
+            <POS>
+                <ul>{courseButtons}</ul>
+            </POS>
+            <POS>
+                <DishesList course={selectedCourse} items={menu} />
+            </POS>
         </div>
     );
 };

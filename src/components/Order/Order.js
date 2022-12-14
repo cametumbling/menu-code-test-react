@@ -4,7 +4,6 @@ import DinerContext from '../../store/diner-context';
 import OrderItem from './OrderItem';
 import Modal from '../UI/Modal';
 import { Button } from '../UI/Button';
-import { Container } from '../UI/Container';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -104,33 +103,29 @@ const Order = (props) => {
             {/* {confirm && (
                 <Modal title="Confirm" message="Are you sure you want to clear the order?" onConfirm={onClearHandler} />
             )} */}
-            <Container>
-                <header>
-                    <h2>Order</h2>
-                    <p>
-                        <span>Order No. {orderNumber}</span>
-                        <span>{props.user}</span>
-                    </p>
-                </header>
-                <div>
-                    {hasItems && (
-                        <>
-                            <div> {orderItems}</div>
-                            <div>
-                                <p style={{ backgroundColor: 'black', color: 'white' }}>
-                                    <span>Total</span>
-                                    <span>{totalAmount}</span>
-                                </p>
-                            </div>
+            <h3>Order</h3>
+            <p>
+                <span>Order No. {orderNumber}</span>
+                <span>{props.user}</span>
+            </p>
+            <div>
+                {hasItems && (
+                    <>
+                        <div> {orderItems}</div>
+                        <div>
+                            <p style={{ backgroundColor: 'black', color: 'white' }}>
+                                <span>Total</span>
+                                <span>{totalAmount}</span>
+                            </p>
+                        </div>
 
-                            <div>
-                                {/* <Button onClick={onClear}>Clear</Button> */}
-                                {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
-                            </div>
-                        </>
-                    )}
-                </div>
-            </Container>
+                        <div>
+                            {/* <Button onClick={onClear}>Clear</Button> */}
+                            {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
+                        </div>
+                    </>
+                )}
+            </div>
         </>
     );
 };

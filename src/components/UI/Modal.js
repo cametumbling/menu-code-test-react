@@ -14,6 +14,7 @@ const Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 `;
 
 const Content = styled.div`
@@ -24,6 +25,7 @@ const Content = styled.div`
     max-height: 90%;
     box-shadow: 0 3px 15px -3px rgba(0, 0, 0, 0.2);
     position: relative;
+    z-index: 100;
 `;
 
 const Modal = (props) => {

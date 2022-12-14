@@ -13,21 +13,9 @@ export const Card = styled.div`
         width: 80%;
     }
     & > div {
-        flex: 1;
+        flex: 2;
     }
     @media (max-width: ${({ theme }) => theme.mobile}) {
         flex-direction: column;
     }
 `;
-
-// const Card = ({ item: { id, name, price } }) => {
-//     <CardStyle>
-//         <h2>{name}</h2>
-//         <p>{price}</p>
-//     </CardStyle>;
-// };
-// const Card = () => {
-//     <CardStyle />;
-// };
-
-// export default Card;
