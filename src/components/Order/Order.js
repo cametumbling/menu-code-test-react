@@ -126,8 +126,8 @@ const Order = (props) => {
                                 }}
                             >
                                 <span>Item</span>
-                                <span>Price</span>
                                 <span>Diner</span>
+                                <span>Price</span>
                             </p>
                         </div>
                         <div>{orderItems}</div>

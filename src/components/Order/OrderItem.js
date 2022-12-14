@@ -13,8 +13,8 @@ const OrderItem = (props) => {
                 }}
             >
                 <span>{props.name}</span>
-                <span>{price}</span>
                 <span>{props.diner}</span>
+                <span>{price}</span>
             </p>
             {/* <Button onClick={props.onRemove}>−</Button> */}
         </li>

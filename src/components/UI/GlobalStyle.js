@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
   p {
     opacity: 0.6;
     line-height: 1;
+
+  }
+  h2, h3 {
+    margin: 0;
   }
   img {
     max-width: 100%;
