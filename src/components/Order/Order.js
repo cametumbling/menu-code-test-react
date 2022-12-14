@@ -78,19 +78,20 @@ const Order = (props) => {
         orderCtx.items = [];
         orderCtx.totalAmount = 0;
         orderCtx.diner = '';
-        dinerCtx.diners = []; //NB: diners will still appear in buttons bc they are hardcoded now
+        dinerCtx.diners = [];
         dinerCtx.diner = '';
     };
 
     const onClear = () => {
         setConfirm(true);
     };
+
     const onClearHandler = () => {
         setConfirm(null);
         orderCtx.items = [];
         orderCtx.totalAmount = 0;
         orderCtx.diner = '';
-        dinerCtx.diners = []; //NB: diners will still appear in buttons bc they are hardcoded now
+        dinerCtx.diners = [];
         dinerCtx.diner = '';
     };
 
