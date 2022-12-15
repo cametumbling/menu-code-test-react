@@ -19,11 +19,6 @@ const Diners = (props) => {
 
     const dinerButtons = diners.map((item, index) => (
         <li key={index}>
-            {/* <Button onClick={setDinerHandler} value={item} diner>
-                <div style={{ display: 'flex', justifyContent: 'start' }}>
-                    <BsPersonFill style={{ margin: '0 5px' }} /> {item}
-                </div>
-            </Button> */}
             {selectedDiner === item ? (
                 <Button diner onClick={setDinerHandler} value={item} bg={theme.colors.secondary}>
                     <BsPersonFill style={{ margin: '0 5px', padding: '3 0 0 0' }} />

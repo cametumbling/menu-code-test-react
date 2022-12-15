@@ -7,11 +7,11 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-    entry: ['./src/App.js'],
+    entry: ['./src/index.js'],
     module: {
         rules: [
             {
-                test: /\.js?$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: [
                     {
@@ -28,5 +28,13 @@ module.exports = {
         path: path.join(__dirname, '/public/webpack/'),
         filename: 'bundle.js',
     },
+    // resolve: {
+    //     alias: {
+    //         config$: './configs/app-config.js',
+    //         // react: './vendor/react-master',
+    //     },
+    //     extensions: ['.js', '.jsx'],
+    //     modules: ['node_modules', 'bower_components', 'shared', '/shared/vendor/modules'],
+    // },
     plugins: [htmlPlugin],
 };
