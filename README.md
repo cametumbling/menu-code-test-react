@@ -1,38 +1,27 @@
 # OpenTable front-end coding challenge
 
-Thank you for accepting our coding challenge. Please take as much time as required to give us a good indication of your coding strengths, as your application will provide many topics of conversation in the next interview stage.
+Thank you for taking the time to view my submission. I would love to receive feedback.
 
-However, in this challenging time, we understand that not everyone has the luxury of sitting down to work on a test uninterrupted. Therefore if you don't manage to implement all of the rules, please describes how you would achieve them or any improvement you would make in the email.
+## Priorities
 
-## The task
+-   Treat data as dynamic, and as I/O for a wide variety of microservices, e.g. assume individual diner orders will be used for future engagement
+-   Design for a POS, using CSS-in-JS
+    _Based on the goals for this job role, I assumed this functionality would be implmented on a POS touchscreen, either iPad-ish size or on a smaller touchscreen. This led me to implement the functionality and design in terms of large buttons that could be quickly and easily clicked by hand._
+    _The pair-programming test was meant to cover CSS-in-JS, hence the use of styled-components here._
 
-We would like you to build a web application.
+## Notes
 
--   The application will allow one user to select dishes on behalf of two diners.
--   The application will present a menu that will be provided and may later require adjustment by a restaurant.
--   The application will enforce some restrictions provided by the restaurant. (see [#rules](#rules))
+-   To constrain scope to passing the acceptance tests, menu and order editing functionality are not live.
+-   Things got a bit messy when I started implementing the conditions, so everything around the Diners needs to be refactored and made more robust to avoid errors.
+-   I've not finished implementing the clear-order functionality, items are clearing from the UI only now
+-   The test provided is several years old, and some tinkering with babel/webpack/etc. was required to get testing packages set up. I wanted to utilize two technologies mentioned for this role (react-testing-library and CSS-in-JS, in this case styled-components), but unfortunately realized a bit late that additional troubleshooting would be required to get them to play well together. I left a failing test in to demonstrate the issue with the way in which s-c passes props. More testing is definitely needed and I apologize for this shortcoming.
 
-We have prepared a basic application structure for you using React and Webpack. Please add **any** additional libraries that you think are suitable, for example for data fetching, CSS, and testing.
+## Next Steps
 
-The menu data is served via GraphQL (http://localhost:3000/graphql) or the API (http://localhost:3000/api/v1/menu). The client application is in `src/App.js`.
-
-**IMPORTANT!** Please use either the GraphQL (preferred) or API approach to fetch menu data on your application, write as clean and maintainable code as possible, and make sure that it's covered by test cases.
-
-## Rules
-
-_To recap, you will build an interface that allows a user to select dishes for a fixed party of **two diners**._\
-This restaurant, unfortunately, has a number of rules about the meals that can be ordered.
-
--   Each person must have at least two courses, one of which must be a main.
--   Each diner cannot have more than one of the same course.
--   There is only one piece of cheesecake left.
--   Pierre the snobby waiter will not let you have a prawn cocktail and salmon fillet in the same meal.
-
-## Acceptance criteria
-
--   The total bill amount is displayed when at least one dish has been selected.
--   An error message is displayed when I try to select an invalid menu combination.
-
-## Submission
-
-Please submit your program as an online repository or downloadable link to your point of contact at OpenTable.
+-   Poll for menu changes
+-   Improve test coverage
+-   Implement a state management system
+-   Design for specific POS viewports
+-   Break out validation logic
+-   Add amount of each dish be added to menu data
+-   Build out API
