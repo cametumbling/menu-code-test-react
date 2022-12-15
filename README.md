@@ -5,9 +5,9 @@ Thank you for taking the time to view my submission. I would love to receive fee
 ## Priorities
 
 -   Treat data as dynamic, and as I/O for a wide variety of microservices, e.g. assume individual diner orders will be used for future engagement
--   Design for a POS, using CSS-in-JS
-    _Based on the goals for this job role, I assumed this functionality would be implmented on a POS touchscreen, either iPad-ish size or on a smaller touchscreen. This led me to implement the functionality and design in terms of large buttons that could be quickly and easily clicked by hand._
-    _The pair-programming test was meant to cover CSS-in-JS, hence the use of styled-components here._
+-   Design for a POS, using CSS-in-JS.
+    _Based on the goals for this job role, I assumed this front-end might be utilized for a POS touchscreen application, either iPad-ish or smaller in size. This led me to implement the functionality and design in terms of large buttons that could be quickly and easily clicked by touch._
+    _Finally, the pair-programming test was meant to cover CSS-in-JS, hence the use of styled-components here, with just a bit of inline CSS._
 
 ## Notes
 
