@@ -4,11 +4,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apo
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './components/UI/GlobalStyle';
 //import NewDish from './components/Menu/NewDish/NewDish';
-import Menu from './components/Menu/Menu';
-import Order from './components/Order/Order';
 import DinerProvider from './store/DinerProvider';
 import OrderProvider from './store/OrderProvider';
-import Diners from './components/Diners/Diners';
 import Spinner from './components/UI/Spinner';
 import { Container } from './components/UI/Container';
 import { Header } from './components/UI/Header';
