@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import { Button } from './Button';
 
 const portalRoot = document.getElementById('portal-root');
 const Background = styled.div`
@@ -13,16 +14,19 @@ const Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 `;
 
 const Content = styled.div`
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
+    min-width: 40%;
     max-width: 90%;
     max-height: 90%;
     box-shadow: 0 3px 15px -3px rgba(0, 0, 0, 0.2);
     position: relative;
+    z-index: 100;
 `;
 
 const Modal = (props) => {
@@ -31,8 +35,8 @@ const Modal = (props) => {
             <Background onClick={props.onConfirm}>
                 <Content>
                     <h2>{props.title}</h2>
-                    <div>{props.message}</div>
-                    <button onClick={props.onConfirm}>Okay</button>
+                    <p>{props.message}</p>
+                    <Button onClick={props.onConfirm}>Okay</Button>
                 </Content>
             </Background>
         </>,

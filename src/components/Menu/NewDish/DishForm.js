@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '../../UI/Button';
 
 const DishForm = (props) => {
     const [enteredName, setEnteredName] = useState('');
@@ -35,10 +36,10 @@ const DishForm = (props) => {
                 </div>
             </div>
             <div>
-                <button type="button" onClick={props.onCancel}>
+                <Button type="button" onClick={props.onCancel}>
                     Cancel
-                </button>
-                <button type="submit">Add Dish</button>
+                </Button>
+                <Button type="submit">Add Dish</Button>
             </div>
         </form>
     );

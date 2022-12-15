@@ -3,6 +3,8 @@ import OrderContext from '../../store/order-context';
 import DinerContext from '../../store/diner-context';
 import OrderItem from './OrderItem';
 import Modal from '../UI/Modal';
+import { Button } from '../UI/Button';
+import { Flex } from '../UI/FlexStyle';
 
 const Order = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -19,8 +21,9 @@ const Order = (props) => {
 
     const orderItems = (
         <ul>
-            {orderCtx.items.map((item) => (
+            {orderCtx.items.map((item, index) => (
                 <OrderItem
+                    key={index}
                     id={item.id}
                     name={item.name}
                     price={item.price}
@@ -64,7 +67,7 @@ const Order = (props) => {
         }
         setSuccess({
             title: 'Success!',
-            message: 'You will enjoy a delicious meal.',
+            message: 'Bon Appétit! 😋',
         });
         return;
     };
@@ -75,11 +78,11 @@ const Order = (props) => {
     const submitHandler = () => {
         //in future, POST order etc
         setSuccess(null);
-        orderCtx.items = [];
-        orderCtx.totalAmount = 0;
-        orderCtx.diner = '';
-        dinerCtx.diners = [];
-        dinerCtx.diner = '';
+        // orderCtx.items = [];
+        // orderCtx.totalAmount = 0;
+        // orderCtx.diner = '';
+        // dinerCtx.diners = [];
+        // dinerCtx.diner = '';
     };
 
     const onClear = () => {
@@ -102,28 +105,51 @@ const Order = (props) => {
             {confirm && (
                 <Modal title="Confirm" message="Are you sure you want to clear the order?" onConfirm={onClearHandler} />
             )}
-            <header>
-                <div>Order No. {orderNumber}</div>
-                <div>{props.user}</div>
-            </header>
-            <div className="container">
+            <Flex>
+                <div>
+                    <h3>Order</h3>
+                    <p>Order No.: {orderNumber}</p>
+                    <p>User: {props.user}</p>
+                    <Button onClick={onClear} bg={'theme.color.muted'}>
+                        Clear
+                    </Button>
+                    {hasEnoughItems && <Button onClick={validateOrderHandler}>Validate Order</Button>}
+                </div>
                 <div>
                     {hasItems && (
                         <>
-                            <div> {orderItems}</div>
                             <div>
-                                <span>Total Bill Amount</span>
-                                <span>{totalAmount}</span>
+                                <p
+                                    style={{
+                                        backgroundColor: 'black',
+                                        color: 'white',
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                    }}
+                                >
+                                    <span>Item</span>
+                                    <span>Diner</span>
+                                    <span>Price</span>
+                                </p>
                             </div>
-
+                            <div>{orderItems}</div>
                             <div>
-                                <button onClick={onClear}>Clear</button>
-                                {hasEnoughItems && <button onClick={validateOrderHandler}>Validate Order</button>}
+                                <p
+                                    style={{
+                                        backgroundColor: 'black',
+                                        color: 'white',
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                    }}
+                                >
+                                    <span>Total</span>
+                                    <span>{totalAmount}</span>
+                                </p>
                             </div>
                         </>
                     )}
                 </div>
-            </div>
+            </Flex>
         </>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import DishItem from './DishItem';
 
 const DishesList = (props) => {
@@ -8,8 +8,8 @@ const DishesList = (props) => {
     let course = props.course;
     return (
         <ul>
-            {props.items[course].map((dish) => (
-                <DishItem id={dish.id} name={dish.name} price={dish.price} course={course} />
+            {props.items[course].map((dish, index) => (
+                <DishItem key={index} id={dish.id} name={dish.name} price={dish.price} course={course} />
             ))}
         </ul>
     );

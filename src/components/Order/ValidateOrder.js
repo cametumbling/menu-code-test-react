@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import OrderContext from '../../store/order-context';
+import { Button } from '../UI/Button';
 
 const ValidateOrder = (props) => {
     let [isValid, setIsValid] = useState(isValid);
@@ -30,7 +31,7 @@ const ValidateOrder = (props) => {
         }
     };
 
-    return <button onClick={validateOrderHandler}>Validate Order</button>;
+    return <Button onClick={validateOrderHandler}>Validate Order</Button>;
 };
 
 export default ValidateOrder;

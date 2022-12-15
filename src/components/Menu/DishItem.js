@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import Modal from '../UI/Modal';
 import DinerContext from '../../store/diner-context';
 import OrderContext from '../../store/order-context';
+import { Button } from '../UI/Button';
 
 const DishItem = (props) => {
     const orderCtx = useContext(OrderContext);
@@ -9,6 +10,7 @@ const DishItem = (props) => {
     const [error, setError] = useState(null);
 
     let order = orderCtx.items;
+    let diner = dinerCtx.diner;
 
     const isCheesecake = order.some((el) => {
         if (el.name === 'Cheesecake') {
@@ -81,10 +83,10 @@ const DishItem = (props) => {
         <>
             {error && <Modal title={error.title} message={error.message} onConfirm={errorHandler} />}
             <li>
-                <button value={props.id} onClick={addToOrderHandler}>
-                    <h2>{props.name}</h2>
-                    <div>£{props.price.toFixed(2)}</div>
-                </button>
+                <Button dish value={props.id} onClick={addToOrderHandler}>
+                    {props.name}
+                    <p>£{props.price.toFixed(2)}</p>
+                </Button>
             </li>
         </>
     );
