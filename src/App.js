@@ -53,7 +53,7 @@ const theme = {
     mobile: '768px',
 };
 function App() {
-    const DINERS = ['Jill', 'Patricia'];
+    const DINERS = ['Jill', 'Jacques'];
 
     const user = 'Lovely OpenTable Dev';
     const { loading, error, data } = useQuery(GET_MENU);
@@ -77,7 +77,7 @@ function App() {
                             <h1>Menu Test</h1>
                             <img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t39.30808-6/211226254_10159773944875799_3677613253310959932_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pfpqZe-6p-MAX9ZD7-O&_nc_ht=scontent-lhr8-1.xx&oh=00_AfC_Tux2S5SV5gJ2GZGcaN9HdH3q_RFfZ1XdPyZ9fFnw5A&oe=639EAF74" />
                         </Header>
-                        <Card>
+                        <Card height="45vh">
                             <Order user={user} />
                         </Card>
                         <Flex>
