@@ -18,10 +18,11 @@ Thank you for taking the time to view my submission. I would love to receive fee
 
 ## Next Steps
 
+-   Implement add/edit/delete functionality for menu and order
 -   Poll for menu changes
 -   Improve test coverage
 -   Implement a state management system
 -   Design for specific POS viewports
 -   Break out validation logic
--   Add amount of each dish be added to menu data
+-   Add amount of each dish be added to menu data; disable buttons if no longer available
 -   Build out API
