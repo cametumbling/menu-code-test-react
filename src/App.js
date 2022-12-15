@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { render } from 'react-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from '@apollo/client';
+import { useQuery, gql } from '@apollo/client';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './components/UI/GlobalStyle';
 //import NewDish from './components/Menu/NewDish/NewDish';
@@ -11,11 +10,6 @@ import { Container } from './components/UI/Container';
 import { Header } from './components/UI/Header';
 import { Card } from './components/UI/Card';
 import { Flex } from './components/UI/FlexStyle';
-
-const client = new ApolloClient({
-    uri: 'http://localhost:3000/graphql',
-    cache: new InMemoryCache(),
-});
 
 const GET_MENU = gql`
     {
@@ -54,7 +48,7 @@ function App() {
     const user = 'Lovely OpenTable Dev';
     const { loading, error, data } = useQuery(GET_MENU);
 
-    if (loading) return <Spinner />;
+    if (loading) return <Spinner data-testid="loading-spinner" />;
     if (error) return <p>Error : {error.message}</p>;
 
     // const addDishHandler = (dish) => {
@@ -100,9 +94,4 @@ function App() {
     );
 }
 
-render(
-    <ApolloProvider client={client}>
-        <App />
-    </ApolloProvider>,
-    document.getElementById('root')
-);
+export default App;
