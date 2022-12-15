@@ -78,11 +78,11 @@ const Order = (props) => {
     const submitHandler = () => {
         //in future, POST order etc
         setSuccess(null);
-        // orderCtx.items = [];
-        // orderCtx.totalAmount = 0;
-        // orderCtx.diner = '';
-        // dinerCtx.diners = [];
-        // dinerCtx.diner = '';
+        orderCtx.items = [];
+        orderCtx.totalAmount = 0;
+        orderCtx.diner = '';
+        dinerCtx.diners = [];
+        dinerCtx.diner = '';
     };
 
     const onClear = () => {
