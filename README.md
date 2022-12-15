@@ -26,4 +26,4 @@ Thank you for taking the time to view my submission. I would love to receive fee
 -   Break out validation logic
 -   Add amount of each dish be added to menu data; disable buttons if no longer available
 -   Build out API
--   Request that the restaurant lower the price of the sticky toffee pudding. :)
+-   Request that the restaurant lower the price of the sticky toffee pudding :)
