@@ -13,7 +13,7 @@ Thank you for taking the time to view my submission. I would love to receive fee
 
 -   To constrain scope to passing the acceptance tests, menu and order editing functionality are not live.
 -   Things got a bit messy when I started implementing the conditions, so everything around the Diners needs to be refactored and made more robust to avoid errors.
--   I've not finished implementing the clear-order functionality, items are clearing from the UI only now
+-   I've not finished implementing the clear-order functionality, items are clearing from the UI only now.
 -   The test provided is several years old, perhaps to mimic a real environment, and some tinkering with babel/webpack/etc. was required to get testing packages set up. I wanted to utilize two technologies mentioned for this role (react-testing-library and CSS-in-JS, in this case styled-components), but unfortunately realized a bit late that additional troubleshooting would be required to get them to play well together. I left a failing test in to demonstrate the issue with the way in which s-c passes props. More testing is definitely needed and I apologize for this shortcoming.
 
 ## Next Steps
@@ -26,3 +26,4 @@ Thank you for taking the time to view my submission. I would love to receive fee
 -   Break out validation logic
 -   Add amount of each dish be added to menu data; disable buttons if no longer available
 -   Build out API
+-   Request that the restaurant lower the price of the sticky toffee pudding. :)
